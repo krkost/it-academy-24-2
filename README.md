@@ -1,2 +1,2 @@
 # it-academy-24-2
-Change to README from newFeature
+This is a change to readme.
