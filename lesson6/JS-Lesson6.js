@@ -1,16 +1,18 @@
+let array = [1, 2, 55, 3, 73, 4, 1, 55, 6, 2];
+console.log("Initial array: " + array);
+
 //1. Change the array in reverse order
-let arrayForReverse = [1, 2, 3, 4, 5, 6];
 function reverseArray(arr){
-    return arr.reverse();
+    let array = arr.slice();
+    return array.reverse();
 }
-console.log(reverseArray(arrayForReverse));
+console.log("1. Reversed array: " + reverseArray(array));
 
 //2. Find the max value in the array
-let arrayForMaxValue = [1, 24, 3, 4, 5, 6];
 function returnMaxValueInArray(arr){
     return Math.max(...arr);
 }
-console.log(returnMaxValueInArray(arrayForMaxValue));
+console.log("2. Max value in the array: " + returnMaxValueInArray(array));
 
 //3. The Fibonacci series into the array starting from N member with array length M
 let n = 4;
@@ -24,7 +26,7 @@ function returnFibonacciSeries(n, m){
 
     return result.slice(n, n + m);
 }
-console.log(returnFibonacciSeries(n, m));
+console.log("3. Fibonacci series for n=" + n + " and m=" + m + ": " + returnFibonacciSeries(n, m));
 
 //4. Compare two 4-digit numbers for matching digits
 let number1 = 3780;
@@ -55,11 +57,10 @@ function compareTwoNumbersForMatchingDigits(num1, num2){
 
     return {digitMatchCount, exactMatchCount};
 }
+console.log("4. Compare numbers for matching digits: number1=" + number1 + ", number2=" + number2);
 console.log(compareTwoNumbersForMatchingDigits(number1, number2));
 
 //5. Sort the array in ascending/descending order
-let arrayForSort = [34, 82, 11, 3, 1, 2];
-
 function sortArrayAscending(array){
     return array.slice().sort((a, b) => a - b);
 }
@@ -67,13 +68,11 @@ function sortArrayAscending(array){
 function  sortArrayDescending(array){
     return array.slice().sort((a, b) => b - a);
 }
-console.log(sortArrayAscending(arrayForSort));
-console.log((sortArrayDescending(arrayForSort)));
+console.log("5.1. Ascending sort: " + sortArrayAscending(array));
+console.log("5.2. Descending sort: " + sortArrayDescending(array));
 
 //6. Remove all duplicate elements from the array
-let arrayForRemovingDuplicates = [1, 22, 45, 3, 45, 2, 22];
-
 function removeDuplicatesFromArray(array){
     return [...new Set(array)];
 }
-console.log(removeDuplicatesFromArray(arrayForRemovingDuplicates));
+console.log("6. Array without duplicates: " + removeDuplicatesFromArray(array));
