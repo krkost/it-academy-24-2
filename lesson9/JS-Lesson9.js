@@ -24,7 +24,19 @@ racePromises();
 /*2. Make a getNum function that returns a promise that, with a delay of 3 seconds, will output a random number from 1
 to 5. Create an async function that, using await, will wait for the result of getNum, then square it and display it on
 the screen.*/
+const getRandomNumberWithDelay = (minNumber, maxNumber) => {
+    return new Promise(resolve => {
+        const delay = 3000;
+        setTimeout(() => resolve(getRandomNumber(minNumber, maxNumber)), delay);
+    });
+};
 
+const displaySquaredRandomNumber = async (minNumber, maxNumber) => {
+    const num = await getRandomNumberWithDelay(minNumber, maxNumber);
+    const squared = Math.pow(num, 2);
+    console.log(`Squared random number: ${squared}`);
+}
+displaySquaredRandomNumber(1, 5);
 
 /*3. Make a getNum function that returns a promise that, with a delay of 3 seconds, will print a random number from 1
 to 5. Also use the getNum function to return a promise that, with a delay of 5 seconds, will print a random number from
