@@ -29,21 +29,21 @@ console.log("1. Sum of Halves of a String");
 console.log("String: " + str + ". The sum of the first half of the digits equals the sum of the\n" +
     "second half of the digits - " + checkSumOfHalvesOfString(str));
 
-/*2. Divide by 2 until not greater than 50
+/*2. Divide by given number until not greater than 50
 Given a number n=1000 (any number can be given). Divide it by 2 as many times as possible until the result of the
 division is less than 50 (can be any given number). What number will you get? Count the number of iterations required
 for this (an iteration is a loop through) and record it in the num variable.*/
 let num = 500;
-let divideBy2UntilNotGreaterThan50 = (number) => {
+let divideByNumberUntilNotGreaterThan50 = (number, divideToNumber) => {
     let count = 0;
 
     while (number >= 50){
-        number /= 2;
+        number /= divideToNumber;
         count++;
     }
     return {result: number, iterations: count};
 };
-let res = divideBy2UntilNotGreaterThan50(num);
+let res = divideByNumberUntilNotGreaterThan50(num, 2);
 console.log("2. Divide by 2 until not greater than 50");
 console.log("Initial number: " + num + ". Result number: " + res.result + ". Number of iterations: " + res.iterations);
 
