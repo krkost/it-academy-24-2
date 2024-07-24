@@ -22,11 +22,8 @@ const racePromises = async () => {
     const promise2 = createPromiseWithDelay(2, 1,5);
     const promise3 = createPromiseWithDelay(3, 1,5);
 
-    const result = await Promise.race([promise1, promise2, promise3]);
-    console.log("1. Use Promise.race to get the first resolved promise:");
-    console.log(`First resolved promise result: ${result}`);
+    return await Promise.race([promise1, promise2, promise3]);
 };
-racePromises();
 
 /*2. Make a getNum function that returns a promise that, with a delay of 3 seconds, will output a random number from 1
 to 5. Create an async function that, using await, will wait for the result of getNum, then square it and display it on
@@ -34,11 +31,9 @@ the screen.*/
 
 const displaySquaredRandomNumber = async (minNumber, maxNumber, delay) => {
     const num = await getRandomNumberWithDelay(minNumber, maxNumber, delay * 1000);
-    const squared = Math.pow(num, 2);
-    console.log("2. Get a random number, square it and display the result:");
-    console.log(`Squared random number: ${squared}`);
+
+    return Math.pow(num, 2);
 }
-displaySquaredRandomNumber(1, 5);
 
 /*3. Make a getNum function that returns a promise that, with a delay of 3 seconds, will print a random number from 1
 to 5. Also use the getNum function to return a promise that, with a delay of 5 seconds, will print a random number from
@@ -48,8 +43,22 @@ result of the second function, and then find the sum of the resulting numbers an
 const displaySumOfRandomNumbers = async () => {
     const num1 = await getRandomNumberWithDelay(1, 5, 3000);
     const num2 = await getRandomNumberWithDelay(6, 10, 5000);
-    const sum = num1 + num2;
-    console.log("3. Get two random numbers, sum them, and display the result:");
-    console.log(`Sum of random numbers: ${sum}`);
+
+    return num1 + num2;
 };
-displaySumOfRandomNumbers();
+
+async function runAsyncMethods() {
+    const firstResult = await racePromises();
+    console.log("1. Use Promise.race to get the first resolved promise:");
+    console.log(`First resolved promise result: ${firstResult}`);
+
+    const secondResult = await displaySquaredRandomNumber(1, 5);
+    console.log("2. Get a random number, square it and display the result:");
+    console.log(`Squared random number: ${secondResult}`);
+
+    const thirdResult = await displaySumOfRandomNumbers();
+    console.log("3. Get two random numbers, sum them, and display the result:");
+    console.log(`Sum of random numbers: ${thirdResult}`);
+}
+
+runAsyncMethods();
